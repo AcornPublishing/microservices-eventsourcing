@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: transfer
+spec:
+  gateways:
+    - cosmos-gateway
+  hosts:
+    - cosmos.io
+  http:
+    - match:
+        - uri:
+            prefix: /transfer/assets
+      route:
+        - destination:
+            host: transfer
+    - match:
+        - uri:
+            prefix: /api/transfer
+          headers:
+            service:
+              exact: transfer
+      rewrite:
+        uri: /transfer
+      route:
+        - destination:
+            host: transfer
+    - match:
+        - uri:
+            prefix: /transfer
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: transfer
+

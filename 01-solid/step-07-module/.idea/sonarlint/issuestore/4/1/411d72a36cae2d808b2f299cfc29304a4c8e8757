@@ -1,0 +1,9 @@
+
+y
+java:S1450"\Remove the "distributable" field and declare it as a local variable in the relevant methods.(εξÿ®8ϋ¦ΥΙ‡0
+W
+java:S1117#"ARename "distributable" which hides the field declared at line 12.(φίη¤
+G
+java:S1068"1Remove this unused "distributable" private field.(εξÿ®
+z
+java:S1488$"_Immediately return this expression instead of assigning it to the temporary variable "assigns".(°Ϊκώωÿÿÿÿ

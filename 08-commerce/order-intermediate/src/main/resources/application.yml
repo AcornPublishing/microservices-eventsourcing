@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: order
+  config:
+    activate:
+      on-profile: default
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:order
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      platform: h2
+  jpa:
+    defer-datasource-initialization: true
+#  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+logging:
+  level:
+    root: INFO
+
+server:
+  port: 8080

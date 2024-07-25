@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: account
+spec:
+  gateways:
+    - cosmos-gateway
+  hosts:
+    - cosmos.io
+  http:
+    - match:
+        - uri:
+            prefix: /account/assets
+      route:
+        - destination:
+            host: account
+    - match:
+        - uri:
+            prefix: /api/account
+          headers:
+            service:
+              exact: account
+      rewrite:
+        uri: /account
+      route:
+        - destination:
+            host: account
+    - match:
+        - uri:
+            prefix: /account
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: account
+

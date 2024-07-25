@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: transfer
+  config:
+    activate:
+      on-profile: default
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:transfer
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      platform: h2
+
+logging:
+  level:
+    root: INFO
+
+server:
+  port: 8080
+
+broker:
+  kafka: localhost:9092
+  topic: account
+
+---
+spring:
+  application:
+    name: transfer
+  config:
+    activate:
+      on-profile: kubernetes
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: ${datasource.url}
+    driverClassName: ${datasource.driver.class.name}
+    username: ${datasource.username}
+    password: ${datasource.password}
+  jpa:
+    defer-datasource-initialization: true
+
+logging:
+  level:
+    root: INFO
+
+server:
+  port: 8080
+
+broker:
+  kafka: ${broker}
+  topic: account

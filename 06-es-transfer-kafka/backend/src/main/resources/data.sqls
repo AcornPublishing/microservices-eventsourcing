@@ -1,0 +1,6 @@
+INSERT INTO TB_SAGA (ID, IN_SAGA, SEQUENCE, TYPE, VERSION) VALUES ('b997b8ab', false, 0, 'io.cosmos.transfer.saga.transfer.TransferSaga', 1);
+INSERT INTO TB_SAGA_EVENT (ID, PAYLOAD, RELAYED, SAGA_ID, SEQUENCE, TIME, TYPE) VALUES ('16a8394d-6733-41c2-9754-9ea702bc4773', '{"transferId":"b997b8ab","fromAccountNo":"8fce365a","toAccountNo":"5ded8b57","amount":600}', true, 'b997b8ab', 1, 1659846465581, 'io.cosmos.transfer.saga.transfer.event.TransferSagaBegan');
+INSERT INTO TB_SAGA_TIMEOUT (CORRELATION_ID, EXPIRE_TIME, SAGA_TYPE, COMPLETE) VALUES ('b997b8ab', '2022-08-07 13:23:13.119', 'Transfer', false);
+
+--INSERT INTO TB_SAGA (ID, IN_SAGA, SEQUENCE, TYPE, VERSION) VALUES ('b997b8aa', false, 0, 'io.cosmos.transfer.saga.transfer.TransferSaga', 1);
+--INSERT INTO TB_SAGA_TIMEOUT (CORRELATION_ID, EXPIRE_TIME, SAGA_TYPE) VALUES ('b997b8aa', '2022-08-07 13:25:13.119', 'Transfer');
